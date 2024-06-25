@@ -41,7 +41,7 @@ class MainActivity : AppCompatActivity() {
 
         binding.filterInput.addTextChangedListener(object : TextWatcher {
             override fun afterTextChanged(s: Editable?) {
-                filterTodos(s.toString())
+                filterTodoItem(s.toString())
             }
 
             override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {}
@@ -59,7 +59,7 @@ class MainActivity : AppCompatActivity() {
     }
 
 
-    private fun filterTodos(query: String) {
+    private fun filterTodoItem(query: String) {
         val filteredList = todoList.filter { it.contains(query, true) }
         adapter.updateList(filteredList)
     }
